@@ -1,0 +1,420 @@
+/* ========================= */
+/* CONFIGURACIÓN GENERAL */
+/* ========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#111;
+    color:white;
+    overflow:hidden;
+}
+
+/* ========================= */
+/* PANTALLAS */
+/* ========================= */
+
+.pantalla{
+    width:100%;
+    height:100vh;
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    position:relative;
+}
+
+.activa{
+    display:flex;
+}
+
+/* ========================= */
+/* PORTADA */
+/* ========================= */
+
+#inicio{
+
+    background:url("img/fondo.jpg") center;
+    background-size:cover;
+
+}
+
+.fondo{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,.65);
+
+}
+
+.contenido{
+
+    position:relative;
+
+    z-index:10;
+
+    text-align:center;
+
+    width:90%;
+    max-width:700px;
+
+}
+
+.contenido h1{
+
+    font-size:45px;
+
+    margin-bottom:25px;
+
+}
+
+.contenido p{
+
+    font-size:20px;
+
+    line-height:1.8;
+
+    margin-bottom:35px;
+
+}
+
+/* ========================= */
+/* BOTONES */
+/* ========================= */
+
+button{
+
+    background:#E10600;
+
+    color:white;
+
+    border:none;
+
+    padding:15px 40px;
+
+    border-radius:40px;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    background:#ff2d2d;
+
+    transform:scale(1.05);
+
+}
+
+/* ========================= */
+/* PUZZLE */
+/* ========================= */
+
+#juego{
+
+    background:#181818;
+
+}
+
+#juego h2{
+
+    margin-bottom:25px;
+
+}
+
+#puzzle{
+
+    width:360px;
+    height:360px;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+    grid-template-rows:repeat(3,1fr);
+
+    gap:2px;
+
+    background:white;
+
+    border:4px solid white;
+
+}
+
+.pieza{
+
+    cursor:pointer;
+
+    background-image:url("img/foto.jpg");
+
+    background-size:360px 360px ;
+
+    border:1px solid #222;
+
+    transition:.2s;
+
+}
+
+.pieza:hover{
+
+    transform:scale(.97);
+
+}
+
+/* ========================= */
+/* META */
+/* ========================= */
+
+#meta{
+
+    background:#111;
+
+    text-align:center;
+
+}
+
+#meta h1{
+
+    font-size:45px;
+
+    margin-bottom:20px;
+
+}
+
+#meta p{
+
+    font-size:20px;
+
+    margin-bottom:30px;
+
+}
+
+/* ========================= */
+/* CARTA */
+/* ========================= */
+
+#carta{
+
+    background:#1a1a1a;
+
+    overflow:auto;
+
+    padding:40px;
+
+}
+
+.sobre{
+
+    width:700px;
+
+    max-width:90%;
+
+    animation:subir .8s;
+
+}
+
+.tapa{
+
+    width:100%;
+
+    height:70px;
+
+    background:#E10600;
+
+    border-radius:15px 15px 0 0;
+
+}
+
+.papel{
+
+    background:white;
+
+    color:#333;
+
+    padding:35px;
+
+    line-height:1.8;
+
+    border-radius:0 0 15px 15px;
+
+}
+
+.papel h2{
+
+    color:#E10600;
+
+    margin-bottom:25px;
+
+}
+
+.papel p{
+
+    margin-bottom:20px;
+
+}
+
+.papel h3{
+
+    text-align:center;
+
+    color:#E10600;
+
+    margin-top:30px;
+
+}
+
+.papel h4{
+
+    text-align:right;
+
+    margin-top:35px;
+
+}
+
+/* ========================= */
+/* ANIMACIÓN */
+/* ========================= */
+
+@keyframes subir{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(60px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media(max-width:600px){
+
+    .contenido h1{
+
+        font-size:30px;
+
+    }
+
+    .contenido p{
+
+        font-size:17px;
+
+    }
+
+    #puzzle{
+
+        width:300px;
+
+        height:300px;
+
+    }
+
+    .pieza{
+
+        background-size:300px 300px;
+
+    }
+
+    .papel{
+
+        padding:25px;
+
+    }
+
+}
+
+/* ========================= */
+/* CONFETI */
+/* ========================= */
+
+.confeti{
+
+    position:fixed;
+
+    top:-20px;
+
+    width:10px;
+
+    height:10px;
+
+    background:red;
+
+    animation:caer linear forwards;
+
+}
+
+.confeti:nth-child(2n){
+
+    background:white;
+
+}
+
+.confeti:nth-child(3n){
+
+    background:gold;
+
+}
+
+@keyframes caer{
+
+    from{
+
+        transform:translateY(0) rotate(0deg);
+
+    }
+
+    to{
+
+        transform:translateY(110vh) rotate(720deg);
+
+    }
+
+}
+
+/* ========================= */
+/* CARTA */
+/* ========================= */
+
+.papel{
+
+    transform:translateY(40px);
+
+    opacity:0;
+
+    transition:1s;
+
+}
+
+.papel.abrir{
+
+    transform:translateY(0);
+
+    opacity:1;
+
+}
